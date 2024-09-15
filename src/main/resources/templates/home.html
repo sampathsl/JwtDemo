@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="container">Welcome to the Home Page</h1>
+
+<div th:if="${errorMessage != null}" class="message error-message">
+    <p th:text="${errorMessage}"></p>
+</div>
+
+<div th:if="${successMessage != null}" class="message success-message">
+    <p th:text="${successMessage}"></p>
+</div>
+
+<div th:if="${token != null}" class="token-container">
+    <h2>Your Bearer Token:</h2>
+    <b><p th:text="${token}"></p></b>
+    <p> Now you can access following APIs by using the Bearer Token.</p>
+    <ul>
+        <li><p>http://localhost:8080/api/v1/users</p></li>
+        <li><p>http://localhost:8080/api/v1/posts</p></li>
+        <li><p>http://localhost:8080/api/v1/comments</p></li>
+    </ul>
+</div>
+
+<div th:if="${token == null}">
+    <p>Once you successfully log in to the application, you will receive a valid JWT token to access the following
+        APIs:</p>
+    <ul>
+        <li><p>http://localhost:8080/api/v1/users</p></li>
+        <li><p>http://localhost:8080/api/v1/posts</p></li>
+        <li><p>http://localhost:8080/api/v1/comments</p></li>
+    </ul>
+</div>
+
+<div th:if="${token == null}" style="text-align: center;">
+    <a href="/login" class="login-link">Go to Login Page</a>
+</div>
+
+</body>
+</html>

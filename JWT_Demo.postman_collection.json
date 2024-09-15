@@ -1,0 +1,230 @@
+{
+  "info": {
+    "_postman_id": "dfb7ec3d-d56a-481c-856d-b9b9fea8972f",
+    "name": "JWT Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6561585"
+  },
+  "item": [
+    {
+      "name": "App User Registration",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"sampath1\",\r\n    \"password\": \"password1\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/register/user",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "register",
+            "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "App User Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"sampath\",\r\n    \"password\": \"sampath@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/user-login",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "user-login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wYXRoMSIsImlhdCI6MTcyNjM4NDg4OSwiZXhwIjoxNzI2Mzg4NDg5fQ.i1BpR2MNh2vFgJPGn1LuwaF6EeQhG3wB8dc0kMHR7pqaL3hzZ7-VXnpFyLLj8tVRQu6G8AcOjJvMrJ4pmvwaDg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/users",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get App Posts",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wYXRoMSIsImlhdCI6MTcyNjM4NzAzOSwiZXhwIjoxNzI2MzkwNjM5fQ.EqggV94CopGeiHE9ZJ-EL1oGRi4ZP3VvE3bTmIRoaQtYcLwcD_CZU9rV04CPw7xKNqHj-TtzlO2b0_5qPTJcog",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/v1/posts",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Comments",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wYXRoMSIsImlhdCI6MTcyNjM4MjgxMywiZXhwIjoxNzI2Mzg2NDEzfQ.qCBj2gwKE87Iuexyx9qhcNn7t3fTTnK4ZKpwgk_UA4G-NRAt8hcjibwZ2kTTtwH7LGlPMiBh4IF94EbTN7z09A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/v1/comments",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "comments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post By An User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wYXRoMSIsImlhdCI6MTcyNjM4NzAzOSwiZXhwIjoxNzI2MzkwNjM5fQ.EqggV94CopGeiHE9ZJ-EL1oGRi4ZP3VvE3bTmIRoaQtYcLwcD_CZU9rV04CPw7xKNqHj-TtzlO2b0_5qPTJcog",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/v1/posts/user/7410757",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "posts",
+            "user",
+            "7410757"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Comments For a Post",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wYXRoMSIsImlhdCI6MTcyNjM4NzAzOSwiZXhwIjoxNzI2MzkwNjM5fQ.EqggV94CopGeiHE9ZJ-EL1oGRi4ZP3VvE3bTmIRoaQtYcLwcD_CZU9rV04CPw7xKNqHj-TtzlO2b0_5qPTJcog",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/v1/comments/post/156027",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "comments",
+            "post",
+            "156027"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
