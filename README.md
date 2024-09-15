@@ -82,13 +82,33 @@ and authorization.
 
 Below are some of the key API endpoints:
 
+- **Sign Up (Register Application User):**
+  POST /api/v1/register/user
+    - Request Body:
+      ```json
+      { 
+        "username": "sampath", 
+        "password": "sampath@123", 
+        "roles": ["USER"]
+      }
+      ```
+    - Response:
+      ```json
+      {
+        "id": 1,
+        "username": "sampath",
+        "password": "$2a$10$OL8rzYprRf8AhF9/b8RDsuIOjJr5RtmXrcL3mG.Zw9fAAB/cENpQ2",
+        "role": "USER"
+      }
+      ```
+
 - **Sign In:**
   POST /api/v1/user-login
     - Request Body:
       ```json
       { 
-        "username": "user123", 
-        "password": "password123" 
+        "username": "sampath", 
+        "password": "sampath@123" 
       }
       ```
     - Response:

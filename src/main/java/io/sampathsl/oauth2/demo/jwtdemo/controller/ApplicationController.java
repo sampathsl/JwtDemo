@@ -10,6 +10,8 @@ import io.sampathsl.oauth2.demo.jwtdemo.util.JwtTokenUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -28,12 +32,20 @@ public class ApplicationController {
   private final AuthUtil authUtil;
   private final UserDetailsService userDetailsService;
   private final JwtTokenUtil jwtTokenUtil;
-  private final UserRepository myUserRepository;
+  private final UserRepository userRepository;
 
   @PostMapping("/register/user")
-  public AppUser registerUser(@RequestBody final RegistrationRequestDto registrationRequestDto) {
-    final AppUser appUser = appUtil.transformRegistrationRequestToUser(registrationRequestDto);
-    return myUserRepository.save(appUser);
+  public ResponseEntity<?> registerUser(
+      @RequestBody final RegistrationRequestDto registrationRequestDto) {
+    final Optional<AppUser> user =
+        userRepository.findByUsername(registrationRequestDto.getUserName());
+    if (user.isEmpty()) {
+      final AppUser appUser = appUtil.transformRegistrationRequestToUser(registrationRequestDto);
+      userRepository.save(appUser);
+      return ResponseEntity.status(HttpStatus.CREATED).body(appUser);
+    } else {
+      return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists");
+    }
   }
 
   @PostMapping("/user-login")
