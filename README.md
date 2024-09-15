@@ -31,7 +31,7 @@ and authorization.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/sampaththennakoon/JwtDemo.git
+   git clone https://github.com/sampathsl/JwtDemo.git
    cd JwtDemo
    ```
 
@@ -151,6 +151,14 @@ Below are some of the key API endpoints:
    # Access protected resource /api/v1/comments
    curl -X GET http://localhost:8080/api/v1/comments \
    -H "Authorization: Bearer $TOKEN"
+   
+   # Access protected resource /api/v1/posts/user/{user_id}
+   curl -X GET http://localhost:8080/api/v1/posts/user/{user_id} \
+   -H "Authorization: Bearer $TOKEN"
+   
+   # Access protected resource /api/v1/comments/post/{post_id}
+   curl -X GET http://localhost:8080/api/v1/comments/post/{post_id} \
+   -H "Authorization: Bearer $TOKEN"
    ```
 
 ## Troubleshooting
@@ -167,7 +175,7 @@ Below are some of the key API endpoints:
 
 ## Contributing
 
-1. Fork the repository.
+1. Fork the repository from https://github.com/sampathsl/JwtDemo.git.
 2. Create a new branch (`git checkout -b feature-xyz`).
 3. Make your changes and commit (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature-xyz`).
