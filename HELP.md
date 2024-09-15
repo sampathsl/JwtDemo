@@ -132,9 +132,19 @@ Below are some of the key API endpoints:
     - Headers: 
     - Authorization: Bearer <JWT_TOKEN>
 
+*GET /api/v1/posts/user/{user_id}*
+
+    - Headers: 
+    - Authorization: Bearer <JWT_TOKEN>
+
 **Comment Resource:**
 
 *GET /api/v1/comments*
+
+    - Headers: 
+    - Authorization: Bearer <JWT_TOKEN>
+
+*GET /api/v1/comments/post/{post_id}*
 
     - Headers: 
     - Authorization: Bearer <JWT_TOKEN>
